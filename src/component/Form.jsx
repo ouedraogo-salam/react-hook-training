@@ -9,7 +9,7 @@ export default function FormTraining(){
       email:"",
       password:""}
   const [user,setUser] = useState(defaulValues);
-  const {register,handleSubmit,formState,reset} = useForm(
+  const {register,handleSubmit,formState,reset,setError} = useForm(
     {
       defaultValues:defaulValues,
       mode:"onChange"
@@ -19,6 +19,11 @@ export default function FormTraining(){
 
   const handleOnSubmit = async (data)=>{
     setTimeout(()=>{reset()},2000)
+    setError("username",{
+      type:"manual",
+      shouldFocus:true,
+      message:"ce champ est obligatoire"
+    })
 
   }
 
